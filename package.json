@@ -4,12 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-dev": "nodemon --config \"./util/nodemon.json\"/",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node ./src/server/serverRun.ts",
     "server": "nodemon --config \"./util/nodemon.json\"/",
     "client": "npm run start --prefix src/public",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
