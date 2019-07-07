@@ -8,7 +8,9 @@
     "start": "ts-node ./src/server/serverRun.ts",
     "server": "nodemon --config \"./util/nodemon.json\"/",
     "client": "npm run start --prefix src/public",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "lint": "tslint --project .",
+    "lint-fix": "tslint --fix --project ."
   },
   "author": "",
   "license": "ISC",
