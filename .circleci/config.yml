@@ -41,6 +41,8 @@ jobs:
       - run: git init
       - run: git config --global user.email "neilrutledgephoto@gmail.com"
       - run: git config --global user.name  "neil"
+      - run: git status
+      - run: ls
       - run: git add .
       - run: git commit -m "DEEPLOY!!!!1"
       - run: git remote add heroku $STAGING_GIT
