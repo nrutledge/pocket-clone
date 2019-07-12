@@ -4,38 +4,56 @@
 #
 version: 2
 jobs:
-  build:
+  lint:
     docker:
       # specify the version you desire here
       - image: circleci/node:10.16
-
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
-
     working_directory: ~/pocket-clone
-
     steps:
       - checkout
-
       # Download and cache dependencies
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
-
-      - run: 
+      - run:
           name: npm install
           command: npm install
-
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-
       # run tests!
-      - run: 
+      - run:
           name: npm run lint
           command: npm run lint
+  deploy-public-staging:
+    docker:
+      - image: circleci/node:10.16
+    working_directory: ~/pocket-clone/src/public
+    steps:
+      - run: git init
+      - run: git config --global user.email "neilrutledgephoto@gmail.com"
+      - run: git config --global user.name  "neil"
+      - run: git status
+      - run: ls
+      - run: git add .
+      - run: git commit -m "DEEPLOY!!!!1"
+      - run: git remote add heroku $STAGING_GIT
+      - run: git push heroku master
+workflows:
+  version: 2
+  default:
+    jobs:
+      - lint
+      - deploy-public-staging:
+          requires:
+            - lint
+          filters:
+            branches:
+              only: master
