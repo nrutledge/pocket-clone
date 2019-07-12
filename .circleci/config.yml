@@ -26,7 +26,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: 
+      - run:
           name: npm install
           command: npm install
 
@@ -36,18 +36,17 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: 
+      - run:
           name: npm run lint
           command: npm run lint
-  deploy-public-staging: 
+  deploy-public-staging:
     docker:
       - image: circleci/node:10.16
     working_directory: ~/pocket-clone/src/public
     steps:
-      - run: |
-        git init
-        git remote add heroku $STAGING_GIT
-        git push heroku master
+      - run: git init
+      - run: git remote add heroku $STAGING_GIT
+      - run: git push heroku master
     filters:
       branches:
         only: master
@@ -56,6 +55,5 @@ workflows:
     jobs:
       - lint
       - deploy-public-staging:
-        requires: 
+        requires:
           - lint
-  
