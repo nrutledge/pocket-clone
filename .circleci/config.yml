@@ -45,8 +45,13 @@ jobs:
       - run: (cd src/public ; ls)
       - run: (cd src/public ; git add .)
       - run: (cd src/public ; git commit -m "DEEPLOY!!!!1")
-      - run: (cd src/public ; git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/$STAGING_GIT)
+      - run: (cd src/public ; git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/$CLIENT_STAGING_GIT)
       - run: (cd src/public ; git push heroku master)
+      - run: rm -rf ./src/public
+      - run: git add .
+      - run: git commit -m "UNLEASH THE KRAKEN"
+      - run: git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/$SERVER_STAGING_GIT
+      - run: git push heroku master
 workflows:
   version: 2
   default:
