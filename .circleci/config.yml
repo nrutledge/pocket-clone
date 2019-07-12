@@ -2,7 +2,7 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2.1
+version: 2
 jobs:
   lint:
     docker:
@@ -47,13 +47,13 @@ jobs:
       - run: git init
       - run: git remote add heroku $STAGING_GIT
       - run: git push heroku master
-    filters:
-      branches:
-        only: master
 workflows:
+  version: 2
   default:
     jobs:
       - lint
       - deploy-public-staging:
-        requires:
-          - lint
+          requires: lint
+          filters:
+            branches:
+              only: master
