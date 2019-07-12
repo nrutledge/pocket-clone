@@ -53,7 +53,8 @@ workflows:
     jobs:
       - lint
       - deploy-public-staging:
-          requires: lint
+          requires:
+            - lint
           filters:
             branches:
               only: master
