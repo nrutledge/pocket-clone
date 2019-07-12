@@ -45,6 +45,8 @@ jobs:
     working_directory: ~/pocket-clone/src/public
     steps:
       - run: git init
+      - run: git add .
+      - run: git commit -m "DEEPLOY!!!!1"
       - run: git remote add heroku $STAGING_GIT
       - run: git push heroku master
 workflows:
