@@ -38,16 +38,15 @@ jobs:
     working_directory: ~/pocket-clone
     steps:
       - checkout
-      - run: cd src/public
-      - run: git init
-      - run: git config --global user.email "neilrutledgephoto@gmail.com"
-      - run: git config --global user.name  "neil"
-      - run: git status
-      - run: ls
-      - run: git add .
-      - run: git commit -m "DEEPLOY!!!!1"
-      - run: git remote add heroku $STAGING_GIT
-      - run: git push heroku master
+      - run: (cd src/public ; git init)
+      - run: (cd src/public ; git config --global user.email "neilrutledgephoto@gmail.com")
+      - run: (cd src/public ; git config --global user.name  "neil")
+      - run: (cd src/public ; git status)
+      - run: (cd src/public ; ls)
+      - run: (cd src/public ; git add .)
+      - run: (cd src/public ; git commit -m "DEEPLOY!!!!1")
+      - run: (cd src/public ; git remote add heroku $STAGING_GIT)
+      - run: (cd src/public ; git push heroku master)
 workflows:
   version: 2
   default:
