@@ -1,37 +1,40 @@
 {
-    "name": "public",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "@types/react": "^16.8.23",
-        "@types/react-dom": "^16.8.4",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6",
-        "react-scripts": "3.0.1",
-        "typescript": ">=3.2.1 <3.5.0"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
-    },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "tslint": "^5.18.0"
-    }
+  "name": "public",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "typescript": ">=3.2.1 <3.5.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint:css": "stylelint './src/**/*.js'"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "stylelint": "^10.1.0",
+    "stylelint-config-standard": "^18.3.0",
+    "tslint": "^5.18.0"
+  }
 }
