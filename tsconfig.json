@@ -23,33 +23,3 @@
     "./src/public/**/*"
   ]
 }
-// {
-//   "compileOnSave": true,
-//   "compilerOptions": {
-//     "module": "commonjs",
-//     "strict": true,
-//     "baseUrl": ".",
-//     "outDir": "build",
-//     "sourceMap": true,
-//     "removeComments": true,
-//     "experimentalDecorators": true,
-//     "target": "es6",
-//     "emitDecoratorMetadata": true,
-//     "moduleResolution": "node",
-//     "importHelpers": true,
-//     "noImplicitAny": true,
-//     "types": [
-//       "node"
-//     ],
-//     "typeRoots": [
-//       "node_modules/@types"
-//     ]
-//   },
-//   "include": [
-//     "./src/server/**/*.ts"
-//   ],
-//   "exclude": [
-//     "./src/**/*.test.ts",
-//     "./src/public/"
-//   ]
-// }
