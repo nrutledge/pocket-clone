@@ -18,20 +18,26 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-node-deps-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-      - run:
-          name: npm install
-          command: npm install
+            - v1-node-deps-
+      - restore_cache:
+          keys:
+            - react-deps-{{ checksum "src/public/package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - react-deps-
+      - run: npm install
+      - run: (cd src/public ; npm install) 
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      # run tests!
-      - run:
-          name: npm run lint
-          command: npm run lint
+          key: v1-node-deps-{{ checksum "package.json" }}
+      - save_cache:
+          paths:
+            - src/public/node_modules
+          key: react-deps-{{ checksum "src/public/package.json" }}
+      - run: npm run lint
+      - run: (cd src/public ; npm run lint:css)
   deploy-public-staging:
     docker:
       - image: circleci/node:10.16
