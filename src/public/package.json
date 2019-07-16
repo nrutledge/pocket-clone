@@ -15,7 +15,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:css": "stylelint './src/**/*.tsx'"
+    "lint:css": "stylelint './src/**/*.tsx'",
+    "lighthouse": "lighthouse http://localhost:3000 --view"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,6 +34,7 @@
     ]
   },
   "devDependencies": {
+    "lighthouse": "^5.1.0",
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
     "tslint": "^5.18.0"
