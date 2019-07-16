@@ -4,7 +4,7 @@ import { Logger } from '@overnightjs/logger';
 class Server extends OvernightServer {
   private readonly SERVER_START_MSG = 'Demo server started on port: ';
 
-  constructor() {
+  private constructor() {
     super();
   }
 
