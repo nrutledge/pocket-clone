@@ -1,18 +1,17 @@
-import { Server as OvernightServer } from '@overnightjs/core';
-import { Logger } from '@overnightjs/logger';
+'use strict';
 
-class Server extends OvernightServer {
-  private readonly SERVER_START_MSG = 'Demo server started on port: ';
+import express from 'express';
 
-  private constructor() {
-    super();
-  }
+const server = (port: number): void => {
+  const app = express();
+  app.get('/', (req, res) => {
+    res.send('Welcome');
+  });
 
-  public start(port = 5000): void {
-    this.app.listen(port, () => {
-      Logger.Imp(this.SERVER_START_MSG + port);
-    });
-  }
-}
+  app.listen(port, () => {
+    // tslint:disable-next-line: no-console
+    console.log(`App is listening on port ${port}.`);
+  });
+};
 
-export default Server;
+export default server;
