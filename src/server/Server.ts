@@ -10,8 +10,8 @@ const server = (port: number): void => {
 
   app.listen(port, () => {
     // tslint:disable-next-line: no-console
-    console.log(`App is listening on port ${port}.`)
+    console.log(`App is listening on port ${port}.`);
   });
-}
+};
 
 export default server;
