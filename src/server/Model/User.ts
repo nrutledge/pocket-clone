@@ -2,11 +2,11 @@ import { prop, Typegoose, ModelType, InstanceType } from 'typegoose';
 
 class User extends Typegoose {
   @prop()
-  name: { first: string; last: string };
+  public name: { first: string; last: string };
   @prop()
-  email: string;
+  public email: string;
   @prop()
-  password: string;
+  public password: string;
 }
 
 const UserModel = new User().getModelForClass(User);
