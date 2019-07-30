@@ -18,46 +18,48 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-node-deps-{{ checksum "package.json" }}
+            - v1-node-deps-{{ checksum "server/package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-node-deps-
       - restore_cache:
           keys:
-            - react-deps-{{ checksum "src/public/package.json" }}
+            - react-deps-{{ checksum "client/package.json" }}
             # fallback to using the latest cache if no exact match is found
             - react-deps-
-      - run: npm install
-      - run: (cd src/public ; npm install) 
+      - run: (cd client ; npm install)
+      - run: (cd server ; npm install)
       - save_cache:
           paths:
-            - node_modules
-          key: v1-node-deps-{{ checksum "package.json" }}
+            - server/node_modules
+          key: v1-node-deps-{{ checksum "server/package.json" }}
       - save_cache:
           paths:
-            - src/public/node_modules
-          key: react-deps-{{ checksum "src/public/package.json" }}
-      - run: npm run lint
-      - run: (cd src/public ; npm run lint:css)
+            - client/node_modules
+          key: react-deps-{{ checksum "client/package.json" }}
+      - run: (cd client ; npm run lint)
+      - run: (cd client ; npm run lint:css)
+      - run: (cd server ; npm run lint)
   deploy-public-staging:
     docker:
       - image: circleci/node:10.16
     working_directory: ~/pocket-clone
     steps:
       - checkout
-      - run: (cd src/public ; git init)
-      - run: (cd src/public ; git config --global user.email "neilrutledgephoto@gmail.com")
-      - run: (cd src/public ; git config --global user.name  "neil")
-      - run: (cd src/public ; git status)
-      - run: (cd src/public ; ls)
-      - run: (cd src/public ; git add .)
-      - run: (cd src/public ; git commit -m "DEEPLOY!!!!1")
-      - run: (cd src/public ; git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/$CLIENT_STAGING_GIT)
-      - run: (cd src/public ; git push heroku master --force)
+      - run: (cd client ; git init)
+      - run: (cd client ; git config --global user.email "neilrutledgephoto@gmail.com")
+      - run: (cd client ; git config --global user.name  "neil")
+      - run: (cd client ; git status)
+      - run: (cd client ; ls)
+      - run: (cd client ; git add .)
+      - run: (cd client ; git commit -m "DEEPLOY!!!!1")
+      - run: (cd client ; git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/$CLIENT_STAGING_GIT)
+      - run: (cd client ; git push heroku master --force)
       - run: rm -rf ./src/public
-      - run: git add .
-      - run: git commit -m "UNLEASH THE KRAKEN"
-      - run: git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/$SERVER_STAGING_GIT
-      - run: git push heroku master --force
+      - run: (cd server ; git init)
+      - run: (cd server ; git add .)
+      - run: (cd server ; git commit -m "UNLEASH THE KRAKEN")
+      - run: (cd server ; git remote add heroku https://heroku:$HEROKU_TOKEN@git.heroku.com/$SERVER_STAGING_GIT)
+      - run: (cd server ; git push heroku master --force)
 workflows:
   version: 2
   default:

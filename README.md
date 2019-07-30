@@ -1,5 +1,7 @@
-# pocket-clone
+# Pocket Clone!
 
-## To develop locally
-1. Run `npm install`
-2. Run  `npm run dev`
+mongo DB is a prerequisite!
+
+to install all projects run `npm run inst`
+
+to run projects in a dev environment `npm run dev`
