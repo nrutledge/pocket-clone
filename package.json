@@ -14,8 +14,8 @@
         "lint-fix:client": "npm run \"lint-fix\" --prefix client",
         "lint": "npm run lint:client && npm run lint:css && npm run lint:server",
         "lint-fix": "npm run lint-fix:server && npm run lint-fix:client",
-        "inst:client": "(cd client ; npm install)",
-        "inst:server": "(cd client ; npm install)",
+        "inst:client": "npm install --prefix client",
+        "inst:server": "npm install --prefix server",
         "inst": "npm install && npm run inst:client && npm run inst:server"
     },
     "repository": {
