@@ -23,7 +23,6 @@
         "eslint-plugin-react": "^7.14.2",
         "nodemon": "^1.19.1",
         "tslint": "^5.18.0",
-        "typescript": "^3.4.5",
         "prettier": "^1.18.2"
     },
     "dependencies": {
@@ -38,6 +37,7 @@
         "express": "^4.17.1",
         "mongoose": "^5.6.6",
         "ts-node": "^8.3.0",
-        "typegoose": "^5.8.1"
+        "typegoose": "^5.8.1",
+        "typescript": "^3.4.5"
     }
 }
