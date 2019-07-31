@@ -6,6 +6,11 @@ module.exports = {
     project: './tsconfig.json',
     jsx: true
   },
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   plugins: ['@typescript-eslint'],
   env: {
     browser: true,

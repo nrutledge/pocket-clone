@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CoreLayout from './CoreLayout';
+import CoreLayout from './Component/CoreLayout';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<CoreLayout />, document.getElementById('root'));

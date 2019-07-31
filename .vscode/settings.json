@@ -11,6 +11,8 @@
             "language": "typescriptreact",
             "autoFix": true
         }
-    ]
+    ],
+    "eslint.workingDirectories": ["./client", "./server"],
+    "workbench.colorCustomizations": {}
 
 }

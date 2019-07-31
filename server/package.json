@@ -4,8 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "server": "tsc && node ./dist/serverRun.js",
-        "start": "ts-node ./src/serverRun.ts",
+        "start": "tsc && node ./dist/serverRun.js",
+        "server": "ts-node ./src/serverRun.ts",
         "server:dev": "nodemon --config \"./nodemon.json\"/",
         "lint": "eslint . --ext .ts,.tsx",
         "lint-fix": "eslint . --fix --ext .ts,.tsx"
