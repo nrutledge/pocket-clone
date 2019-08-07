@@ -4,15 +4,15 @@ import express from 'express';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
+import router from './routes';
+
 const server = (port: number): void => {
   const app = express();
   mongoose.connect(process.env.MONGO_URL, async () => {
     console.log('MONGO CONNECTION ACHIEVED');
   });
 
-  app.get('/', (req, res) => {
-    res.send('Welcome');
-  });
+  router(app);
 
   app.listen(port, () => {
     // tslint:disable-next-line: no-console
