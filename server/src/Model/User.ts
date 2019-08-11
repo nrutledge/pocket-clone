@@ -1,6 +1,6 @@
 import { prop, Typegoose, ModelType, InstanceType } from 'typegoose';
 
-class User extends Typegoose {
+export class User extends Typegoose {
   @prop()
   public name: { first: string; last: string };
   @prop()

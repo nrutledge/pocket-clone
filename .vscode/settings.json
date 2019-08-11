@@ -12,6 +12,7 @@
             "autoFix": true
         }
     ],
+    "editor.formatOnSave": true,
     "eslint.workingDirectories": ["./client", "./server"],
     "workbench.colorCustomizations": {}
 
