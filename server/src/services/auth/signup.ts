@@ -1,8 +1,9 @@
+import 'module-alias/register';
 import passport from 'passport';
 import { Handler, ResponseTuple } from 'types/http';
 import { Config } from 'Config';
 import { right } from 'fp-ts/Lib/Either';
-import validateBody from 'util/validateBody';
+import validateBody from '@src/util/validateBody';
 
 interface SignupResponse {
   token: string;
