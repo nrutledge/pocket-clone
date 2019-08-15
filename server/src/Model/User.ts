@@ -1,6 +1,6 @@
-import { prop, Typegoose, ModelType, InstanceType } from 'typegoose';
+import { prop, Typegoose } from 'typegoose';
 
-export class User extends Typegoose {
+export class UserSchema extends Typegoose {
   @prop()
   public name: { first: string; last: string };
   @prop()
@@ -9,6 +9,6 @@ export class User extends Typegoose {
   public password: string;
 }
 
-const UserModel = new User().getModelForClass(User);
+const User = new UserSchema().getModelForClass(UserSchema);
 
-export default UserModel;
+export default User;

@@ -5,7 +5,7 @@ interface Reqbody {
 
 export default (fields: string[], reqBody: Reqbody): void => {
   fields.forEach((field: string) => {
-    if (reqBody[field]) {
+    if (!reqBody[field]) {
       throw new Error(`${field} not provided`);
     }
   });

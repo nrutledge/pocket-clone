@@ -23,9 +23,9 @@ const server = (port: number): void => {
   app.use(bodyParser.json({ limit: '50mb' }));
   app.use(bodyParser.urlencoded({ extended: false }));
 
-  mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true }, async () => {
-    console.log('MONGO CONNECTION ACHIEVED');
-  });
+  mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
+    .then(() => console.log('MONGO CONNECTION ACHIEVED'))
+    .catch(console.error);
 
   router(app);
 
