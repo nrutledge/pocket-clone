@@ -2,6 +2,8 @@
 
 mongo DB is a prerequisite!
 
+You will need .env files in the root of client and server directories
+
 to install all projects run `npm run inst`
 
 to run projects in a dev environment `npm run dev`

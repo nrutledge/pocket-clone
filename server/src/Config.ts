@@ -1,15 +1,16 @@
 import 'module-alias/register';
 import { Model, Document } from 'mongoose';
 import UserModel from '@src/Model/User';
-import documentExists from '@src/util/documentExists';
+import errorIfExists from '@src/util/errorIfExists';
 
 export interface Config {
   models: {
     User: Model<Document>
   },
   util: {
-    documentExists(model: Model<Document>, query: object): Promise<Boolean>
-  }
+    errorIfExists(model: Model<Document>, query: object): Promise<Boolean>
+  },
+  cryptoKey: string
 }
 
 export const config: Config = {
@@ -17,8 +18,9 @@ export const config: Config = {
     User: UserModel
   },
   util: {
-    documentExists: documentExists
-  }
+    errorIfExists
+  },
+  cryptoKey: process.env.CRYPTO_KEY || 'a2k3nr23iuhr32iub2jkbf23iu12io'
 };
 
 
