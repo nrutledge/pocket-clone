@@ -8,4 +8,4 @@ export default async (model: Model<Document>, query: object): Promise<null> => {
   if (doc) throw new Error(`${modelName} already exists.`);
 
   return null;
-}
+};

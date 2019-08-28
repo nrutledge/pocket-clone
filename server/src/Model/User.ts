@@ -5,9 +5,9 @@ export class UserSchema extends Typegoose {
   public name: { first: string; last: string };
   @prop()
   public email: {
-    type: string,
-    unique: true
-  }
+    type: string;
+    unique: true;
+  };
   @prop()
   public password: string;
 }

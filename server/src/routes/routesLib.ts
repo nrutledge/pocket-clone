@@ -10,7 +10,6 @@ import { Config } from 'Config';
 // TODO: Remove later (leaving for reference purposes)
 export const ahandler: Handler<null> = () =>
   new Promise(resolve => {
-    console.log('hullo!');
     return resolve([200, {}]);
   });
 

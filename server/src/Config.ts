@@ -5,12 +5,12 @@ import errorIfExists from '@src/util/errorIfExists';
 
 export interface Config {
   models: {
-    User: Model<Document>
-  },
+    User: Model<Document>;
+  };
   util: {
-    errorIfExists(model: Model<Document>, query: object): Promise<Boolean>
-  },
-  cryptoKey: string
+    errorIfExists(model: Model<Document>, query: object): Promise<boolean>;
+  };
+  cryptoKey: string;
 }
 
 export const config: Config = {
@@ -22,6 +22,3 @@ export const config: Config = {
   },
   cryptoKey: process.env.CRYPTO_KEY || 'a2k3nr23iuhr32iub2jkbf23iu12io'
 };
-
-
-

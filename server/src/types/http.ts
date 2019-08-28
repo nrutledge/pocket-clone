@@ -1,7 +1,4 @@
 import express from 'express';
-import models from 'models';
-import { User } from 'Model/User';
-import { ModelType } from 'typegoose';
 import { Config } from 'Config';
 
 export type ResponseTuple<T> = [number, APIResponse<T>];

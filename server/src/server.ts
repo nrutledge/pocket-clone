@@ -23,14 +23,17 @@ const server = (port: number): void => {
   app.use(bodyParser.json({ limit: '50mb' }));
   app.use(bodyParser.urlencoded({ extended: false }));
 
-  mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
+  mongoose
+    .connect(process.env.MONGO_URL, { useNewUrlParser: true })
+    // eslint-disable-next-line no-console
     .then(() => console.log('MONGO CONNECTION ACHIEVED'))
+    // eslint-disable-next-line no-console
     .catch(console.error);
 
   router(app);
 
   app.listen(port, () => {
-    // tslint:disable-next-line: no-console
+    // eslint-disable-next-line no-console
     console.log(`App is listening on port ${port}.`);
   });
 };

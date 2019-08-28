@@ -17,21 +17,27 @@ interface ReducerAction<T> {
 
 interface RegistrationResponse {
   data: {
-    token: string
-  }
+    token: string;
+  };
 }
 
 const targetValue = (e: React.ChangeEvent<HTMLInputElement>) => e.target.value;
 
-type HomeActionType = 'SET_FIRST_NAME' | 'SET_LAST_NAME' | 'SET_EMAIL' | 'SET_PASSWORD' | 'SET_CONFIRM_PASSWORD' | 'SET_ERROR';
+type HomeActionType =
+  | 'SET_FIRST_NAME'
+  | 'SET_LAST_NAME'
+  | 'SET_EMAIL'
+  | 'SET_PASSWORD'
+  | 'SET_CONFIRM_PASSWORD'
+  | 'SET_ERROR';
 
 const Home: React.FunctionComponent<{}> = () => {
   const [state, dispatch] = React.useReducer(
     (oldState, action) => {
       switch (action.type) {
-        case 'SET_FIRST_NAME': 
+        case 'SET_FIRST_NAME':
           return { ...oldState, firstName: action.payload };
-        case 'SET_LAST_NAME': 
+        case 'SET_LAST_NAME':
           return { ...oldState, lastName: action.payload };
         case 'SET_EMAIL':
           return { ...oldState, email: action.payload };
@@ -48,25 +54,40 @@ const Home: React.FunctionComponent<{}> = () => {
     { firstName: '', lastName: '', email: '', password: '', confirmPassword: '', error: '' }
   );
 
+  const makeAction = (type: HomeActionType) => (payload: string): ReducerAction<string> => {
+    return { type, payload };
+  };
+
+  const sendAction = (action: HomeActionType) =>
+    flow(
+      makeAction(action),
+      dispatch
+    );
+
+  const sendActionInput = (action: HomeActionType) =>
+    flow(
+      targetValue,
+      sendAction(action)
+    );
+
   const LoginSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    
+
     sendAction('SET_ERROR')('');
 
     if (state.password !== state.confirmPassword) {
       sendAction('SET_ERROR')('Confirm password does not match password.');
     }
 
-    console.log('apUrl', config.apiUrl);
-
-    axios.post(config.apiUrl + '/signup', {
-      name: {
-        first: state.firstName,
-        last: state.lastName
-      }, 
-      email: state.email,
-      password: state.password
-    })
+    axios
+      .post(config.apiUrl + '/signup', {
+        name: {
+          first: state.firstName,
+          last: state.lastName
+        },
+        email: state.email,
+        password: state.password
+      })
       .then((response: RegistrationResponse) => {
         const token: string = response.data.token;
 
@@ -76,22 +97,10 @@ const Home: React.FunctionComponent<{}> = () => {
         // TODO: navigate somewhere
       })
       .catch(err => {
-        console.log(err);
         sendAction('SET_ERROR')(err.message);
         // Write parser to deal with different situations (server down, validation error, etc.)
-      })
+      });
   };
-
-  const makeAction = (type: HomeActionType) => (payload: string): ReducerAction<string> => {
-    return { type, payload };
-  };
-  const sendAction = (action: HomeActionType) =>
-    flow(
-      makeAction(action),
-      dispatch
-    );
-    
-  const sendActionInput = (action: HomeActionType) => flow(targetValue, sendAction(action))
 
   return (
     <Box
