@@ -1,8 +1,8 @@
 import express from 'express';
-import { Either, fold } from 'fp-ts/Lib/Either';
+import { Either, fold } from 'fp-ts/lib/Either';
 import { pipe } from 'fp-ts/lib/pipeable';
-import { tryCatch } from 'fp-ts/Lib/TaskEither';
-import { identity } from 'fp-ts/Lib/function';
+import { tryCatch } from 'fp-ts/lib/TaskEither';
+import { identity } from 'fp-ts/lib/function';
 
 import { ResponseTuple, Handler } from 'types/http';
 import { Config } from 'Config';
