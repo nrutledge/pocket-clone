@@ -9,14 +9,10 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   env: {
     browser: true,
-    node: true
+    node: true,
+    es6: true
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-    'plugin:prettier/recommended'
-  ],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:prettier/recommended'],
   rules: {
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/indent': ['error', 2],
