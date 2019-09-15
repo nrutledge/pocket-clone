@@ -1,7 +1,7 @@
 import 'module-alias/register';
 import { Model, Document } from 'mongoose';
-import UserModel from '@src/Model/User';
-import errorIfExists from '@src/util/errorIfExists';
+import UserModel from './Model/User';
+import errorIfExists from './util/errorIfExists';
 
 export interface Config {
   models: {

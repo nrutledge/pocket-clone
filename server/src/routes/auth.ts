@@ -1,8 +1,8 @@
 import 'module-alias/register';
 import express from 'express';
-import { config } from '@src/Config';
+import { config } from '../Config';
 import { runRouteHandler, ahandler } from './routesLib';
-import signupHandler from '@src/services/auth/signup';
+import signupHandler from '../services/auth/signup';
 
 const authRouter = (app: express.Application) => {
   const route = runRouteHandler(config);
