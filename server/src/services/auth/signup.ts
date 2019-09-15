@@ -3,8 +3,8 @@ import { pbkdf2, randomBytes } from 'crypto';
 import jwt from 'jsonwebtoken';
 import 'module-alias/register';
 import { Handler } from 'types/http';
-import User from '@src/Model/User';
-import validateBody from '@src/util/validateBody';
+import User from '../../Model/User';
+import validateBody from '../../util/validateBody';
 
 const pbkdf2Promise = promisify(pbkdf2);
 
