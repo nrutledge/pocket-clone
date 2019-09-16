@@ -5,19 +5,17 @@ import { FormField } from 'mineral-ui/Form';
 import Box from 'mineral-ui/Box';
 import TextInput from 'mineral-ui/TextInput';
 import { flow } from 'fp-ts/lib/function';
+import ReducerAction from '../Types/ReducerAction';
 
 import config from '../util/config';
 
 import ErrorDisplay from './ErrorDisplay';
 
-interface ReducerAction<T> {
-  type: string;
-  payload?: T;
-}
-
 interface RegistrationResponse {
   data: {
-    token: string;
+    result: {
+      token: string;
+    };
   };
 }
 
@@ -89,7 +87,7 @@ const Home: React.FunctionComponent<{}> = () => {
         password: state.password
       })
       .then((response: RegistrationResponse) => {
-        const token: string = response.data.token;
+        const token: string = response.data.result.token;
 
         localStorage.setItem('token', token);
         axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
