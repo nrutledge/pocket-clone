@@ -5,21 +5,17 @@ import { FormField } from 'mineral-ui/Form';
 import Box from 'mineral-ui/Box';
 import TextInput from 'mineral-ui/TextInput';
 import { flow } from 'fp-ts/lib/function';
+import ReducerAction from '../Types/ReducerAction';
 
 import config from '../util/config';
 
 import ErrorDisplay from './ErrorDisplay';
 
-interface ReducerAction<T> {
-  type: string;
-  payload?: T;
-}
-
 interface RegistrationResponse {
   data: {
     result: {
       token: string;
-    }
+    };
   };
 }
 

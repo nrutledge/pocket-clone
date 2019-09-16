@@ -15,8 +15,8 @@ const util_1 = require("util");
 const crypto_1 = require("crypto");
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 require("module-alias/register");
-const User_1 = __importDefault(require("@src/Model/User"));
-const validateBody_1 = __importDefault(require("@src/util/validateBody"));
+const User_1 = __importDefault(require("../../Model/User"));
+const validateBody_1 = __importDefault(require("../../util/validateBody"));
 const pbkdf2Promise = util_1.promisify(crypto_1.pbkdf2);
 // TODO: Consider removing response from the handler type as it should not be necessary
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
