@@ -47,7 +47,7 @@
         "fp-ts-contrib": "^0.1.2",
         "jsonwebtoken": "^8.5.1",
         "module-alias": "^2.2.1",
-        "mongoose": "^5.6.6",
+        "mongoose": "^5.7.5",
         "morgan": "^1.9.1",
         "passport": "^0.4.0",
         "ts-node": "^8.3.0",
