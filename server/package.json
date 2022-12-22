@@ -45,7 +45,7 @@
         "express": "^4.17.1",
         "fp-ts": "^2.0.3",
         "fp-ts-contrib": "^0.1.2",
-        "jsonwebtoken": "^8.5.1",
+        "jsonwebtoken": "^9.0.0",
         "module-alias": "^2.2.1",
         "mongoose": "^5.6.6",
         "morgan": "^1.9.1",
